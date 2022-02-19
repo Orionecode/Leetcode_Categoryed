@@ -11,7 +11,7 @@ public class Solution704 {
 		int low = 0, high = nums.length - 1;
 		while (low <= high) {
 			// 关键在这里二分
-			int mid = (high + low) / 2;
+			int mid = low + (high - low) / 2;
 			int num = nums[mid];
 			if (num == target) {
 				return mid;
@@ -22,7 +22,6 @@ public class Solution704 {
 				// 如果是目标大了，将下界变大
 				low = mid + 1;
 			}
-			System.out.println();
 		}
 		return -1;
 	}

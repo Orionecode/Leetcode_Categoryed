@@ -51,17 +51,21 @@ public class Solution206 {
 
     // 迭代做法
     public ListNode iterateReverseList(ListNode head) {
-        ListNode newNode = null;
-        while (head != null) {
-            // 保存下一个节点的值
-            ListNode next = head.next;
-            // 将当前节点指向前一个节点
-            head.next = newNode;
-            // 将当前节点作为前一个节点的值
-            newNode = head;
-            // 将当前节点移动到下一个节点
-            head = next;
+        // cur 指针指向头节点
+        ListNode cur = head;
+        // pre 指针为空
+        ListNode pre = null;
+
+        while (cur != null){
+            // 保存原本的下一个节点
+            ListNode temp = cur.next;
+            // 将cur指向前一个
+            cur.next = pre;
+            // 将pre指针移动到cur的位置
+            pre = cur;
+            // 将指针移动到下一个节点
+            cur = temp;
         }
-        return newNode;
+        return pre;
     }
 }
