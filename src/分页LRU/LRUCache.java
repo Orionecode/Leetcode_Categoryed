@@ -1,3 +1,5 @@
+package 分页LRU;
+
 import java.util.HashMap;
 import java.util.Map;
 

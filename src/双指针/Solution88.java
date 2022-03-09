@@ -1,9 +1,13 @@
+package 双指针;
 
 /**
  * @Author YixiaoZeng
  * @Date 2022/3/6 15:24
- * @Filename Solution88
+ * @Filename 双指针.Solution88
  */
+
+// 88. 合并两个有序数组
+// 给你两个按 非递减顺序 排列的整数数组 nums1 和 nums2，另有两个整数 m 和 n ，分别表示 nums1 和 nums2 中的元素数目。
 
 public class Solution88 {
     public static void merge(int[] nums1, int m, int[] nums2, int n) {
