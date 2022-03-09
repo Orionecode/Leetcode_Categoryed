@@ -32,7 +32,9 @@ import java.util.List;
 
 public class Solution39 {
     public List<List<Integer>> combinationSum(int[] candidates, int target) {
+        // 结果
         List<List<Integer>> res = new ArrayList<>();
+        // 临时结果
         Deque<Integer> path = new ArrayDeque<>();
         backtrack(candidates, target, path, res, 0);
         return res;
@@ -47,7 +49,8 @@ public class Solution39 {
         }
         // 以2，3，5 三个数为例，当我们将2开头的找完后，循环会+1，从3开始找
         // 但是如果不能告诉start状态的话，start又会=0，将2添加到数组中，从而出现重复
-        // 比如[3, 5]找完后去找[5, 3]，
+        // 比如[3, 5]找完后去找[5, 3]
+        // 创建分支
         for (int i = start; i < candidates.length; i++) {
             path.addLast(candidates[i]);
             backtrack(candidates, target - candidates[i], path, res, i);
@@ -56,8 +59,8 @@ public class Solution39 {
     }
 
     public static void main(String[] args) {
-        int[] nums = {10, 1, 2, 7, 6, 1, 5};
-        int target = 8;
+        int[] nums = {2, 3, 6, 7};
+        int target = 7;
         Solution39 solution = new Solution39();
         List<List<Integer>> lists = solution.combinationSum(nums, target);
         System.out.println(lists);

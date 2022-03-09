@@ -3,7 +3,6 @@ package 链表;
 // 92. 反转链表 II
 // 给你单链表的头指针 head 和两个整数left 和 right ，其中left <= right 。请你反转从位置 left 到位置 right 的链表节点，返回 反转后的链表 。
 
-
 /**
  * @Author YixiaoZeng
  * @Date 2022/2/10 19:03
@@ -13,50 +12,48 @@ package 链表;
 public class Solution92 {
     public ListNode reverseBetween(ListNode head, int left, int right) {
         // 因为头节点有可能发生变化，使用虚拟头节点可以避免复杂的分类讨论
-        ListNode dummyNode = new ListNode(-1);
+        ListNode dummyNode = new ListNode();
         dummyNode.next = head;
+        ListNode superior = dummyNode;
 
-        ListNode pre = dummyNode;
-        // 第 1 步：从虚拟头节点走 left - 1 步，来到 left 节点的前一个节点
-        // 建议写在 for 循环里，语义清晰
-        for (int i = 0; i < left - 1; i++) {
-            pre = pre.next;
+        // 1. 遍历至left的前一个节点
+        for (int i = 1; i < left; i++) {
+            superior = superior.next;
         }
 
-        // 第 2 步：从 pre 再走 right - left + 1 步，来到 right 节点
-        ListNode rightNode = pre;
-        for (int i = 0; i < right - left + 1; i++) {
-            rightNode = rightNode.next;
+        ListNode prev = null;
+        ListNode cur = superior.next;
+
+        // 2. 180°反转区间链表
+        for (int i = 0; i <= right - left; i++) {
+            ListNode next = cur.next;
+            System.out.println(i);
+            cur.next = prev;
+            prev = cur;
+            cur = next;
         }
 
-        // 第 3 步：切断出一个子链表（截取链表）
-        ListNode leftNode = pre.next;
-        ListNode curr = rightNode.next;
-
-        // 注意：切断链接
-        pre.next = null;
-        rightNode.next = null;
-
-        // 第 4 步：同第 206 题，反转链表的子区间
-        reverseLinkedList(leftNode);
-
-        // 第 5 步：接回到原来的链表中
-        pre.next = rightNode;
-        leftNode.next = curr;
+        // 3. 修改left和right-left位置处的节点的指向
+        superior.next.next = cur;
+        superior.next = prev;
         return dummyNode.next;
     }
 
     private void reverseLinkedList(ListNode head) {
-        ListNode newNode = null;
-        while (head != null) {
-            // 保存下一个节点的值
-            ListNode next = head.next;
-            // 将当前节点指向前一个节点
-            head.next = newNode;
-            // 将当前节点作为前一个节点的值
-            newNode = head;
-            // 将当前节点移动到下一个节点
-            head = next;
+        // cur 指针指向头节点
+        ListNode cur = head;
+        // pre 指针为空
+        ListNode pre = null;
+
+        while (cur != null) {
+            // 保存原本的下一个节点
+            ListNode temp = cur.next;
+            // 将cur指向前一个
+            cur.next = pre;
+            // 将pre指针移动到cur的位置
+            pre = cur;
+            // 将指针移动到下一个节点
+            cur = temp;
         }
     }
 }

@@ -12,17 +12,20 @@ package 贪心算法;
 public class Solution55 {
     public static boolean canJump(int[] nums) {
         int n = nums.length;
+        if (n == 1){
+            return true;
+        }
         // 能到的最远位置
-        int rightMost = 0;
-        for (int i = 0; i < n; ++i) {
+        int coverRange = 0;
+        for (int i = 0; i < n; i++) {
             // ！！！确保当前下标不会超过最右下标
-            if (i <= rightMost)
+            if (i <= coverRange)
                 // 贪心算法，比较现在能到的最远位置和之前的最远位置
-                rightMost = Math.max(rightMost, i + nums[i]);
-                // 如果最远位置大于等于数组最后一个下标就返回True
-                if (rightMost >= n - 1) {
-                    return true;
-                }
+                coverRange = Math.max(coverRange, i + nums[i]);
+            // 如果最远位置大于等于数组最后一个下标就返回True
+            if (coverRange >= n - 1) {
+                return true;
+            }
         }
         return false;
     }

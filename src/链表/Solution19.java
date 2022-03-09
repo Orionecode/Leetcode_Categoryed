@@ -9,14 +9,19 @@ import java.util.LinkedList;
 
 public class Solution19 {
     public ListNode lengthRemoveNthFromEnd(ListNode head, int n) {
-        // 先创建一个哑节点，从哑节点开始遍历
-        ListNode dummy = new ListNode(0, head);
+        // 先创建一个哑节点
+        ListNode dummy = new ListNode();
+        // 将哑节点指向头节点
+        dummy.next = head;
+        // 声明一个cur指针从哑节点
         ListNode cur = dummy;
         int length = 0;
+        // 计算链表长度
         while (head != null){
             length ++;
             head = head.next;
         }
+        // 将指针指向要删除的节点
         for (int i = 0; i < length - n; i ++){
             cur = cur.next;
         }
@@ -46,10 +51,10 @@ public class Solution19 {
         if (head == null) {
             return head;
         }
-        // 先声明两个节点
+        // 先声明两个快慢指针
         ListNode slow = head;
         ListNode fast = head;
-        // 遍历到要删除到位置，将
+        // 快指针遍历到要删除到位置
         for(int i = 0; i < n; i++){
             fast = fast.next;
         }
