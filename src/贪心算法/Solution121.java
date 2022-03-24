@@ -16,16 +16,16 @@ public class Solution121 {
             return 0;
         }
         int min = prices[0];
-        int max = 0;
+        int profit = 0;
         // 遍历一次，找到最高价格和最低价格，遍历一次，时间复杂度O(n)，空间复杂度O(1)
         for (int i = 1; i < prices.length; i++) {
             // 取右最大值
-            max = Math.max(max, prices[i] - min);
+            profit = Math.max(profit, prices[i] - min);
             // 取左最小值
             min = Math.min(min, prices[i]);
         }
-        // 返回最大值
-        return max;
+        // 返回最大利润
+        return profit;
     }
 
     // 动态规划，速度不占优势的情况下占用O(n)空间复杂度

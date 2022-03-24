@@ -5,7 +5,7 @@ package 动态规划;
  * @Date 2022/2/14 13:31
  * @Filename Solution198
  */
-// Solution191 打家劫舍
+// Solution198 打家劫舍
 // 动态规划题目
 // 这道题目的DP方程是将所有偷盗的钱加在一起
 

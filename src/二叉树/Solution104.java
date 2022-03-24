@@ -20,6 +20,7 @@ public class Solution104 {
         if (root == null) {
             return 0;
         }
+        // 和110题思路一样，也是后续遍历
         int leftDepth = maxDepth(root.left);
         int rightDepth = maxDepth(root.right);
         return Math.max(leftDepth, rightDepth) + 1;

@@ -14,6 +14,7 @@ public class Solution222 {
         if (root == null) {
             return 0;
         }
+        // 后续遍历，加上头节点 + 1
         int leftCount = countNodes(root.left);
         int rightCount = countNodes(root.right);
         return leftCount + rightCount + 1;

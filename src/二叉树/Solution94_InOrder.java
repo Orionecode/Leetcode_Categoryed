@@ -50,4 +50,9 @@ public class Solution94_InOrder {
         dfs(res, root.right);
     }
 
+    public static void main(String[] args) {
+        TreeNode root = TreeTool.construct_binary_tree(new int[]{3, 5, 7, 8, 2, 4, 6});
+        Solution94_InOrder solution94_inOrder = new Solution94_InOrder();
+        System.out.println(solution94_inOrder.inorderTraversalDFS(root));
+    }
 }

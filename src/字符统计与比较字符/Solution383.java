@@ -1,9 +1,11 @@
+package 字符统计与比较字符;
+
 import java.util.ArrayList;
 
 /**
  * @Author YixiaoZeng
  * @Date 2022/3/9 13:48
- * @Filename Solution383
+ * @Filename 字符统计与比较字符.Solution383
  */
 
 // 383. 赎金信

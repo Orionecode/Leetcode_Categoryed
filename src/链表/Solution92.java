@@ -56,4 +56,10 @@ public class Solution92 {
             cur = temp;
         }
     }
+
+    public static void main(String[] args) {
+        Solution92 solution92 = new Solution92();
+        ListNode head = ListTool.constructListNode(new int[]{1, 2, 3, 4, 5});
+        System.out.println(ListTool.printLinkedList(solution92.reverseBetween(head, 2, 4)));
+    }
 }

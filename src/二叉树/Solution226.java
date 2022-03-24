@@ -10,19 +10,17 @@ package 二叉树;
 
 public class Solution226 {
     public TreeNode invertTree(TreeNode root) {
-        return postOrderDFS(root);
-    }
-
-    private TreeNode postOrderDFS(TreeNode root) {
         if (root == null) {
-            return root;
+            return null;
         }
-        postOrderDFS(root.left);
-        postOrderDFS(root.right);
-        // Swap Processing
+        // 深度DFS后序遍历，从底部向上交换
+        invertTree(root.left);
+        invertTree(root.right);
+        // 开始交换
         TreeNode temp = root.left;
         root.left = root.right;
         root.right = temp;
+        // 最后返回
         return root;
     }
 }

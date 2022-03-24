@@ -12,8 +12,9 @@ package 二叉搜索树;
 // 98. 验证二叉搜索树
 
 public class Solution98 {
-    long maxVal = -Long.MAX_VALUE;
-// 二叉搜索树「中序遍历」得到的值构成的序列一定是升序的
+    long maxVal = Long.MIN_VALUE;
+
+    // 二叉搜索树「中序遍历」得到的值构成的序列一定是升序的
     public boolean isValidBST(TreeNode root) {
         // 边界条件
         if (root == null) {
@@ -27,6 +28,7 @@ public class Solution98 {
         } else {
             return false;
         }
+        // 递归右子树
         boolean right = isValidBST(root.right);
         return left && right;
     }
