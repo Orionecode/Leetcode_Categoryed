@@ -11,7 +11,6 @@ public class Solution5 {
         if (totalLength < 2){
             return s;
         }
-
         int maxLength = 1;
         int begin = 0;
         // 创建一个bool类型的二维数组（状态转移表格） 表示s[i..j]是否是回文串
