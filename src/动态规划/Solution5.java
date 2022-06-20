@@ -4,7 +4,6 @@ package 动态规划;
 // 动态规划算法，此题目是找出句子中最长的回文
 
 public class Solution5 {
-
     public static String longestPalindrome(String s) {
         int totalLength = s.length();
         // 如果字符串的长度小于2，一定是回文子串
